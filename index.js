@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import perumahanRoute from "./src/routes/perumahanRoute.js";
 import penghuniRoute from "./src/routes/penghuniRoute.js";
 import pembayaranRoute from "./src/routes/pembayaranRoute.js";
+import pengeluaranRoute from "./src/routes/pengeluaranRoute.js";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use(perumahanRoute);
 app.use(penghuniRoute);
 app.use(pembayaranRoute);
+app.use(pengeluaranRoute);
 
 app.listen(PORT, () =>
   console.log(`the server is running on port ${PORT}....`)

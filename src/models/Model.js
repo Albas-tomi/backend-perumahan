@@ -98,6 +98,25 @@ const PembayaranModel = db.define(
   }
 );
 
+// Model Pengeluaran
+const PengeluaranModel = db.define(
+  "db_pengeluaran",
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    deskripsi: DataTypes.STRING,
+    jumlah_pengeluaran: DataTypes.FLOAT,
+    tanggal_pengeluaran: DataTypes.DATE,
+  },
+  {
+    freezeTableName: true,
+    timestamps: false,
+  }
+);
+
 // Relasi antar model
 
 // Relasi satu penghuni memiliki banyak pembayaran
@@ -119,7 +138,7 @@ PembayaranModel.belongsTo(RumahModel, { foreignKey: "id_rumah" });
 // Relasi pembayaran berhubungan dengan satu penghuni
 PembayaranModel.belongsTo(PenghuniModel, { foreignKey: "id_penghuni" });
 
-export { PenghuniModel, RumahModel, PembayaranModel };
+export { PenghuniModel, RumahModel, PembayaranModel, PengeluaranModel };
 
 (async () => {
   await db.sync({ alter: true }); // Menyesuaikan model dengan tabel di database
